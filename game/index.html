@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLANO BAY — Open-World Crime Story</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="topleft">
+      <div id="stars"></div>
+      <div id="clock">08:00</div>
+      <div id="cash">$0</div>
+    </div>
+    <div id="healthbar"><div id="healthfill"></div><span id="healthtext">100</span></div>
+    <div id="armorbar"><div id="armorfill"></div><span>ARMOR</span></div>
+    <div id="weaponbox"><span id="weapon">PISTOL</span><span id="ammo">12 / ∞</span></div>
+    <div id="speedbox" class="hidden"><span id="speed">0</span><span class="unit">mph</span><div id="carname">—</div></div>
+    <div id="objective"><div id="objtitle">FREE ROAM</div><div id="objtext">Explore Solano Bay. Press M for missions.</div></div>
+    <div id="toast"></div>
+    <div id="hint">E — enter car &nbsp;·&nbsp; LMB — shoot &nbsp;·&nbsp; R — reload &nbsp;·&nbsp; P — save &nbsp;·&nbsp; Esc — pause</div>
+    <canvas id="minimap" width="220" height="170"></canvas>
+    <div id="maplabel">SOLANO BAY</div>
+    <div id="crosshair">+</div>
+    <div id="vignette"></div>
+    <div id="wasted" class="hidden bigcenter">WASTED</div>
+    <div id="busted" class="hidden bigcenter">BUSTED</div>
+    <div id="dialogue" class="hidden"><div id="dname"></div><div id="dtext"></div><div id="dcont">Press E / click to continue ▸</div></div>
+    <div id="missionbanner" class="hidden"><div id="mbtitle"></div><div id="mbsub"></div></div>
+    <div id="interact" class="hidden">Press E</div>
+  </div>
+
+  <!-- Start screen -->
+  <div id="start" class="overlay">
+    <div class="panel">
+      <h1>SOLANO<br>BAY</h1>
+      <p class="tag">An open-world crime story. All city, characters, vehicles,<br>names and story are original — nothing from Rockstar Games.</p>
+      <p class="story">Mara Voss came back to Solano Bay with a stolen past and an empty wallet.
+      Old friend Dario has work — the kind that pays in cash and trouble.
+      Drive, steal, run, fight. Make the city yours.</p>
+      <div class="btns">
+        <button id="btnNew">▶ NEW GAME</button>
+        <button id="btnContinue">↻ CONTINUE</button>
+      </div>
+      <div class="controls">
+        <b>CONTROLS</b>
+        <span><b>WASD / Arrows</b> move &amp; drive</span><span><b>Shift</b> sprint</span>
+        <span><b>E</b> enter / steal car · talk · interact</span><span><b>Mouse + Click</b> aim &amp; shoot</span>
+        <span><b>R</b> reload</span><span><b>Space</b> handbrake</span>
+        <span><b>P</b> save game</span><span><b>M</b> sound on/off</span><span><b>Esc</b> pause</span>
+      </div>
+      <p class="fine">Plays fully offline · saves to this browser (localStorage) · headphones optional</p>
+    </div>
+  </div>
+
+  <!-- Pause -->
+  <div id="pause" class="overlay hidden">
+    <div class="panel">
+      <h2>PAUSED</h2>
+      <p id="pausestats"></p>
+      <div class="btns">
+        <button id="btnResume">▶ RESUME</button>
+        <button id="btnSave">💾 SAVE GAME</button>
+        <button id="btnQuit">■ QUIT TO TITLE</button>
+      </div>
+      <p class="fine">Progress: <span id="pauseprog"></span></p>
+    </div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
