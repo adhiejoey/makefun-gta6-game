@@ -1,5 +1,6 @@
+// Solano Bay v1.2 — recorded rebuild
 /* ============================================================================
-   SOLANO BAY v1.1 — an original open-world crime game (make.fun gta6-01).
+   SOLANO BAY v1.2 — an original open-world crime game (make.fun gta6-01).
    Top-down 2D canvas, zero network requests, all art and sound procedural.
    The city (Solano Bay), the characters (Mara Voss, Dario, the Dock Rats),
    the vehicles, the story and the music are original creations — nothing
