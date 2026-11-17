@@ -1,77 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SOLANO BAY — an original open-world crime game. Drive, steal, run and fight across a living city. No downloads, no network, plays offline in desktop Chrome.">
 <title>SOLANO BAY — Open-World Crime Story</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23ffd23f'/%3E%3Ctext x='16' y='23' font-size='18' font-weight='bold' text-anchor='middle' fill='%23111'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="wrap">
-  <canvas id="game" width="1280" height="720"></canvas>
+<main id="wrap" aria-label="Solano Bay game">
+  <canvas id="game" width="1280" height="720" aria-label="Solano Bay game canvas"></canvas>
 
-  <!-- HUD -->
-  <div id="hud" class="hidden">
+  <!-- In-game HUD (shown once a game starts) -->
+  <section id="hud" class="hidden" aria-label="Heads-up display">
     <div id="topleft">
-      <div id="stars"></div>
+      <div id="stars" aria-label="Wanted level"></div>
       <div id="clock">08:00</div>
       <div id="cash">$0</div>
     </div>
+    <div id="district">DOWNTOWN</div>
     <div id="healthbar"><div id="healthfill"></div><span id="healthtext">100</span></div>
     <div id="armorbar"><div id="armorfill"></div><span>ARMOR</span></div>
-    <div id="weaponbox"><span id="weapon">PISTOL</span><span id="ammo">12 / ∞</span></div>
+    <div id="weaponbox"><span id="weapon">PISTOL</span><span id="ammo">12 / 12</span></div>
     <div id="speedbox" class="hidden"><span id="speed">0</span><span class="unit">mph</span><div id="carname">—</div></div>
-    <div id="objective"><div id="objtitle">FREE ROAM</div><div id="objtext">Explore Solano Bay. Press M for missions.</div></div>
-    <div id="toast"></div>
-    <div id="hint">E — enter car &nbsp;·&nbsp; LMB — shoot &nbsp;·&nbsp; R — reload &nbsp;·&nbsp; P — save &nbsp;·&nbsp; Esc — pause</div>
-    <canvas id="minimap" width="220" height="170"></canvas>
+    <div id="objective"><div id="objtitle">FREE ROAM</div><div id="objtext">Explore Solano Bay.</div></div>
+    <div id="toast" role="status"></div>
+    <div id="hint">WASD — move &amp; drive &nbsp;·&nbsp; E — enter car &nbsp;·&nbsp; Click — shoot &nbsp;·&nbsp; R — reload &nbsp;·&nbsp; P — save &nbsp;·&nbsp; Esc — pause</div>
+    <canvas id="minimap" width="220" height="170" aria-label="Minimap of Solano Bay"></canvas>
     <div id="maplabel">SOLANO BAY</div>
-    <div id="crosshair">+</div>
-    <div id="vignette"></div>
+    <div id="crosshair" aria-hidden="true">+</div>
+    <div id="vignette" aria-hidden="true"></div>
     <div id="wasted" class="hidden bigcenter">WASTED</div>
     <div id="busted" class="hidden bigcenter">BUSTED</div>
     <div id="dialogue" class="hidden"><div id="dname"></div><div id="dtext"></div><div id="dcont">Press E / click to continue ▸</div></div>
     <div id="missionbanner" class="hidden"><div id="mbtitle"></div><div id="mbsub"></div></div>
     <div id="interact" class="hidden">Press E</div>
-  </div>
+  </section>
 
-  <!-- Start screen -->
-  <div id="start" class="overlay">
+  <!-- Title screen -->
+  <section id="start" class="overlay" aria-label="Title screen">
     <div class="panel">
+      <p class="eyebrow">AN ORIGINAL OPEN-WORLD CRIME STORY</p>
       <h1>SOLANO<br>BAY</h1>
-      <p class="tag">An open-world crime story. All city, characters, vehicles,<br>names and story are original — nothing from Rockstar Games.</p>
-      <p class="story">Mara Voss came back to Solano Bay with a stolen past and an empty wallet.
-      Old friend Dario has work — the kind that pays in cash and trouble.
-      Drive, steal, run, fight. Make the city yours.</p>
+      <p class="tag">Every street, character, car, name and note of music in this game is
+      original — a love letter to open-world crime games, with nothing taken
+      from Rockstar Games or GTA.</p>
+      <p class="story">Mara Voss came home to Solano Bay with a stolen past and an empty
+      wallet. Old friend Dario has work — the kind that pays in cash and
+      trouble. Drive, steal, run, fight. Make the city yours.</p>
       <div class="btns">
-        <button id="btnNew">▶ NEW GAME</button>
-        <button id="btnContinue">↻ CONTINUE</button>
+        <button id="btnNew" type="button">▶ NEW GAME</button>
+        <button id="btnContinue" type="button">↻ CONTINUE</button>
       </div>
-      <div class="controls">
-        <b>CONTROLS</b>
-        <span><b>WASD / Arrows</b> move &amp; drive</span><span><b>Shift</b> sprint</span>
-        <span><b>E</b> enter / steal car · talk · interact</span><span><b>Mouse + Click</b> aim &amp; shoot</span>
-        <span><b>R</b> reload</span><span><b>Space</b> handbrake</span>
-        <span><b>P</b> save game</span><span><b>M</b> sound on/off</span><span><b>Esc</b> pause</span>
+      <div class="controls" aria-label="Controls">
+        <b>CONTROLS</b><span></span>
+        <span><b>WASD / Arrows</b> — move &amp; drive</span><span><b>Shift</b> — sprint</span>
+        <span><b>E</b> — enter / steal car · talk · interact</span><span><b>Mouse + Click</b> — aim &amp; shoot</span>
+        <span><b>R</b> — reload</span><span><b>Space</b> — handbrake</span>
+        <span><b>1 / 2</b> — pistol / SMG</span><span><b>P</b> — save game</span>
+        <span><b>M</b> — sound on/off</span><span><b>Esc</b> — pause</span>
       </div>
-      <p class="fine">Plays fully offline · saves to this browser (localStorage) · headphones optional</p>
+      <p class="fine">v1.1 · Plays fully offline · Saves to this browser (localStorage) ·
+      headphones optional · Desktop Chrome recommended</p>
     </div>
-  </div>
+  </section>
 
-  <!-- Pause -->
-  <div id="pause" class="overlay hidden">
+  <!-- Pause menu -->
+  <section id="pause" class="overlay hidden" aria-label="Paused">
     <div class="panel">
       <h2>PAUSED</h2>
       <p id="pausestats"></p>
       <div class="btns">
-        <button id="btnResume">▶ RESUME</button>
-        <button id="btnSave">💾 SAVE GAME</button>
-        <button id="btnQuit">■ QUIT TO TITLE</button>
+        <button id="btnResume" type="button">▶ RESUME</button>
+        <button id="btnSave" type="button">💾 SAVE GAME</button>
+        <button id="btnQuit" type="button">■ QUIT TO TITLE</button>
       </div>
       <p class="fine">Progress: <span id="pauseprog"></span></p>
     </div>
-  </div>
-</div>
+  </section>
+</main>
+<noscript><p style="color:#fff;text-align:center;padding:2em">Solano Bay needs JavaScript enabled to play.</p></noscript>
 <script src="game.js"></script>
 </body>
 </html>
