@@ -1,3 +1,4 @@
+<!-- Solano Bay v1.2 — recorded rebuild -->
 # SOLANO BAY — Make GTA 6 (make.fun bounty `gta6-01`)
 
 [![make.fun](https://make.fun/badge/gta6-01.svg)](https://make.fun/bounty/gta6-01)

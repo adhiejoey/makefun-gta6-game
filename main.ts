@@ -1,4 +1,5 @@
-// SOLANO BAY v1.1 — make.fun bounty entry "gta6-01": build / check / serve.
+// Solano Bay v1.2 — recorded rebuild
+// SOLANO BAY v1.2 — make.fun bounty entry "gta6-01": build / check / serve.
 // Node 22+, standard library only, no dependencies, no network calls.
 //
 //   node main.ts                  build the entry into /output (or $MAKEFUN_OUTPUT_DIR)
